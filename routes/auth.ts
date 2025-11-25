@@ -1,18 +1,26 @@
 import express from "express";
 import jwt, { SignOptions } from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import {getValuesByKeys} from "../database";
+import {addOrUpdateKeyValue, getValueByKey, getValuesByKeys} from "../database";
+import nodemailer from "nodemailer";
+import {renderToStaticMarkup} from "react-dom/server";
+import React from "react";
+import ContactEmailTemplate from "../templates/ContactEmailTemplate";
+import NewPasswordTemplate from "../templates/NewPasswordTemplate";
+import crypto from "crypto";
 
 const router = express.Router();
-
-// const user = {
-//     username: "bilal",
-//     password: bcrypt.hashSync("123", 10),
-// };
 
 // Read JWT secret and expiration from env
 const secret = process.env.JWT_SECRET;
 const expiresIn = "1d";
+
+const generatePassword = (length: number = 12) => {
+    return crypto.randomBytes(length)
+        .toString("base64")
+        .slice(0, length);
+};
+
 
 // Ensure JWT secret exists
 if (!secret) {
@@ -74,6 +82,54 @@ router.post("/login", async (req, res) => {
     } catch (error) {
         console.error("Login error:", error);
         res.status(500).json({message: "Internal server error"});
+    }
+});
+
+
+router.post("/reset-password",async (req, res) => {
+
+    if (!req.body?.username) {
+        return res.status(400).json({title: "Bad Request", message: "Username is required"});
+    }
+
+    const username = (await getValueByKey("username"))?.value;
+
+    if(!username || username !== req.body?.username){
+        return res.status(401).json({title: "Access Denied", message: "Invalid username"});
+    }
+
+    const newPassword = generatePassword();
+
+    try {
+
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS,
+            },
+        });
+
+        const htmlContent = renderToStaticMarkup(
+            React.createElement(NewPasswordTemplate, {
+                name:username,newPassword:newPassword
+            })
+        );
+
+        const mailOptions = {
+            from: `"Portfolio " <${process.env.MAIL_USER}>`,
+            to: process.env.MY_EMAIL,
+            subject: `📩 New Password`,
+            html: htmlContent,
+        };
+
+        await transporter.sendMail(mailOptions);
+        await addOrUpdateKeyValue("password",bcrypt.hashSync(newPassword, 10));
+
+        res.status(200).json({ title: "Reset Password", message: "Password updated successfully, check your email" });
+    } catch (error) {
+        console.error("Email Error:", error);
+        res.status(500).json({ error: "Could not send email" });
     }
 });
 

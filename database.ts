@@ -78,7 +78,7 @@ export const getValuesByKeys = async (keys: string[]) => {
     });
 
     const data: Record<string, string> = {};
-    results.forEach((item) => {
+    results.forEach((item: { key: string | number; value: string; }) => {
         data[item.key] = item.value;
     });
 
