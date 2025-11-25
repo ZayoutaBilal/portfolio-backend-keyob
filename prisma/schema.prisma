@@ -1,0 +1,47 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Skill {
+  id         Int      @id @default(autoincrement())
+  name       String
+  category   String
+  level      Int
+  created_at DateTime @default(now())
+  updated_at DateTime?
+}
+
+model Experience {
+  id           Int      @id @default(autoincrement())
+  title        String
+  company      String
+  location     String
+  startDate    String
+  endDate      String
+  description  String   @db.Text
+  technologies String   @db.Text
+  created_at   DateTime @default(now())
+  updated_at   DateTime?
+}
+
+model Project {
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String   @db.Text
+  technologies String   @db.Text
+  githubUrl    String
+  liveUrl      String?
+  image        String?
+  created_at   DateTime @default(now())
+  updated_at   DateTime?
+}
+
+model KeyValue {
+  key   String @id
+  value String @db.Text
+}
