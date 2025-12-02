@@ -1,18 +1,19 @@
-import express from "express";
+import express, {RequestHandler} from "express";
 import jwt, { SignOptions } from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import {addOrUpdateKeyValue, getValueByKey, getValuesByKeys} from "../database";
 import nodemailer from "nodemailer";
 import {renderToStaticMarkup} from "react-dom/server";
 import React from "react";
-import ContactEmailTemplate from "../templates/ContactEmailTemplate";
 import NewPasswordTemplate from "../templates/NewPasswordTemplate";
 import crypto from "crypto";
+import {authenticateToken, AuthRequest} from "../jwtMiddleware";
 
 const router = express.Router();
 
 // Read JWT secret and expiration from env
 const secret = process.env.JWT_SECRET;
+const env = process.env.NODE_ENV;
 const expiresIn = "1d";
 
 const generatePassword = (length: number = 12) => {
@@ -27,7 +28,6 @@ if (!secret) {
     throw new Error("JWT_SECRET is not set in environment variables!");
 }
 
-// Login route
 router.post("/login", async (req, res) => {
     const {username, password} = req.body;
 
@@ -66,8 +66,8 @@ router.post("/login", async (req, res) => {
         // Send token in HttpOnly cookie
         res.cookie("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "none",
+            secure: env === "production",
+            sameSite: env === "production" ? "none" : "strict",
             maxAge: maxAge > 0 ? maxAge : 24 * 60 * 60 * 1000
         });
 
@@ -132,5 +132,17 @@ router.post("/reset-password",async (req, res) => {
         res.status(500).json({ error: "Could not send email" });
     }
 });
+
+const isAuthenticatedHandler: RequestHandler = (req: AuthRequest, res) => {
+    return res.status(200).json({
+        authenticated: true,
+        username: req.user?.username || null,
+        isAdmin: req.user?.isAdmin ?? false,
+        timestamp: Date.now(),
+        message: "The admin is authenticated"
+    });
+};
+
+router.get('/isAuthenticated', authenticateToken, isAuthenticatedHandler);
 
 export default router;
