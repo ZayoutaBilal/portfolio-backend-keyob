@@ -6,6 +6,7 @@ import projectRoutes from './routes/projects';
 import healthRoutes from './routes/health';
 import authRoutes from './routes/auth';
 import contactRoutes from './routes/contact';
+import chatRoutes from './routes/chat';
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -29,5 +30,6 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/chat', chatRoutes);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
