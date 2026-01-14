@@ -1,0 +1,104 @@
+{
+  "full_name": "Zayouta Bilal",
+  "title": "Back-End Software Engineer",
+  "profile": "Backend Developer proficient in Spring Boot / Java, focused on quality and continuous learning. Curious, autonomous, and adaptable to any environment, I design efficient and meaningful solutions with a strong understanding of business logic.",
+  "location": "Morocco",
+  "contact": {
+    "email": "bilal.zayouta@gmail.com",
+    "github": "https://github.com/ZayoutaBilal",
+    "linkedin": "https://www.linkedin.com/in/bilal-zayouta"
+  },
+  "skills": {
+    "programming_languages": [
+      "Java",
+      "C#",
+      "PHP",
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "SQL"
+    ],
+    "frameworks": [
+      "Spring Boot",
+      "Spring Core",
+      "Spring JPA",
+      "Spring AOP",
+      "Spring Batch",
+      "Spring Security",
+      "JEE",
+      "Laravel",
+      "ASP.NET",
+      "Angular",
+      "React"
+    ],
+    "databases": [
+      "MySQL",
+      "PostgreSQL",
+      "SQLite",
+      "MongoDB",
+      "Redis",
+      "MinIO"
+    ],
+    "tools": [
+      "Git",
+      "GitLab CI/CD",
+      "Docker",
+      "Kafka",
+      "Swagger",
+      "Postman",
+      "SonarQube",
+      "Jira",
+      "UML",
+      "Cloudflare"
+    ]
+  },
+  "languages": [
+    { "language": "Arabic", "level": "Native" },
+    { "language": "English", "level": "Advanced" },
+    { "language": "French", "level": "Advanced" }
+  ],
+  "experience": [
+    {
+      "company": "Novitus",
+      "role": "Full-stack Developer",
+      "period": "June 2025 - Present",
+      "location": "Rabat, Morocco",
+      "description": "Migrated the Member Area system of the Social Works Foundation to a modern React/Redux and Spring Boot architecture secured with JWT. Implemented production deployment automation using Docker and GitLab CI/CD"
+    },
+    {
+      "company": "NTT DATA",
+      "role": "Spring Boot Developer Intern (PFE)",
+      "period": "February 2025 - May 2025",
+      "location": "Tetouan, Morocco",
+      "description": "Designed and developed the Employee Leave Management System at NTT DATA, building RESTful APIs with Spring Boot and implementing OAuth2 authentication with Azure. Focused on optimizing back-end performance and reliability while ensuring seamless integration with the front-end"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Specialized Master’s in Computer Engineering",
+      "institution": "Faculty of Science, Abdelmalek Essaadi University",
+      "period": "2023 - 2025",
+      "location": "Tetouan, Morocco"
+    },
+    {
+      "degree": "Bachelor in Mathematics and Computer Science",
+      "institution": "Faculty of Science, Abdelmalek Essaadi University",
+      "period": "2020 - 2023",
+      "location": "Tetouan, Morocco"
+    }
+  ],
+  "projects": [
+    {
+      "name": "E-commerce Application",
+      "description": "E-commerce web application using Spring Boot and Angular with hexagonal architecture, Kafka, custom Spring Security with AOP, JWT, OAuth2, Swagger, PostgreSQL, and Redis."
+    },
+    {
+      "name": "School Management Application",
+      "description": "School management web application using JEE and JWT (grades, attendance, library, results)."
+    },
+    {
+      "name": "Hotel Booking Application",
+      "description": "Back-end development of a hotel booking application using Laravel, Eloquent ORM, database migrations, and Laravel Passport authentication."
+    }
+  ]
+}
