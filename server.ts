@@ -8,10 +8,14 @@ import authRoutes from './routes/auth';
 import contactRoutes from './routes/contact';
 import chatRoutes from './routes/chat';
 import cookieParser from "cookie-parser";
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 const app = express();
 
 const port = process.env.PORT || 10000;
+
+// Initialize Vercel Speed Insights
+injectSpeedInsights();
 
 app.use(cors({
     origin: ['https://zayouta-bilal.vercel.app',
