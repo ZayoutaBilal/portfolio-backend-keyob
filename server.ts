@@ -18,7 +18,7 @@ const port = process.env.PORT || 10000;
 injectSpeedInsights();
 
 app.use(cors({
-    origin: ['https://zayouta-bilal.vercel.app','https://devlance-website.vercel.app/',
+    origin: ['https://zayouta-bilal.vercel.app','https://devlance-website.vercel.app',
         /^http:\/\/localhost:\d+$/
     ], // frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
