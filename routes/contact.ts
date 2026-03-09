@@ -79,7 +79,7 @@ router.post("/devlance", async (req, res) => {
         );
 
         const mailOptions = {
-            from: `DevLance Website`,
+            from: `"DevLance Website" <${process.env.MAIL_USER}>`,
             to: [process.env.MY_EMAIL!, "devlance.dev25@gmail.com"],
             subject: `📩 New message from ${name}`,
             html: htmlContent,
