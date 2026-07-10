@@ -1,9 +1,10 @@
 {
   "full_name": "Zayouta Bilal",
-  "title": "Back-End Software Engineer",
-  "profile": "Backend Developer proficient in Spring Boot / Java, focused on quality and continuous learning. Curious, autonomous, and adaptable to any environment, I design efficient and meaningful solutions with a strong understanding of business logic.",
-  "location": "Morocco",
+  "title": "Software Developer & Backend Engineer",
+  "profile": "Quality-oriented and autonomous Software Developer specializing in backend architecture with extensive expertise across Java (Spring Boot) and C# (ASP.NET Core) ecosystems. Adept at driving full-stack migrations, building high-performance RESTful APIs, implementing critical security upgrades (MFA, account lockouts, brute-force mitigation), and ensuring systems alignment with rigorous ISO 27001 compliance standards.",
+  "location": "Tangier, Morocco",
   "contact": {
+    "phone": "+2126 04 94 49 76",
     "email": "bilal.zayouta@gmail.com",
     "github": "https://github.com/ZayoutaBilal",
     "linkedin": "https://www.linkedin.com/in/bilal-zayouta"
@@ -21,35 +22,40 @@
     "frameworks": [
       "Spring Boot",
       "Spring Core",
-      "Spring JPA",
+      "JPA",
+      "Spring Security",
       "Spring AOP",
       "Spring Batch",
-      "Spring Security",
       "JEE",
+      "ASP.NET Core",
       "Laravel",
-      "ASP.NET",
+      "React",
+      "Redux",
       "Angular",
-      "React"
+      "JUnit",
+      "Mockito"
     ],
     "databases": [
-      "MySQL",
       "PostgreSQL",
+      "MySQL",
       "SQLite",
       "MongoDB",
+      "SQL Server",
       "Redis",
       "MinIO"
     ],
     "tools": [
-      "Git",
-      "GitLab CI/CD",
       "Docker",
+      "GitLab CI/CD",
       "Kafka",
+      "Cloudflare",
+      "SonarQube",
+      "Git",
       "Swagger",
       "Postman",
-      "SonarQube",
       "Jira",
-      "UML",
-      "Cloudflare"
+      "n8n",
+      "UML"
     ]
   },
   "languages": [
@@ -59,29 +65,36 @@
   ],
   "experience": [
     {
+      "company": "Alltechs",
+      "role": "Software Developer (CDD Contract)",
+      "period": "March 2026 - July 2026",
+      "location": "Tangier, Morocco",
+      "description": "Implemented Smalter ERP Platform security upgrades including MFA, strict account lockouts, and brute-force mitigation. Authored technical hosting overview documentation and conducted gap analyses for ISO 27001 compliance readiness. Designed and deployed a brand-new, extensible item commenting feature natively built into the platform's core to improve workflows without backward compatibility issues."
+    },
+    {
       "company": "Novitus",
-      "role": "Full-stack Developer",
-      "period": "June 2025 - Present",
+      "role": "Full-Stack Developer",
+      "period": "June 2025 - February 2026",
       "location": "Rabat, Morocco",
-      "description": "Migrated the Member Area system of the Social Works Foundation to a modern React/Redux and Spring Boot architecture secured with JWT. Implemented production deployment automation using Docker and GitLab CI/CD"
+      "description": "Spearheaded the architectural overhaul and migration of legacy features into a secure, modernized React/Redux frontend integrated with a stateless Spring Boot (JWT) backend for the 'Espace Adhérent'. Designed containerized multi-stage environments with Docker and built fully automated deployment pipelines leveraging GitLab CI/CD."
     },
     {
       "company": "NTT DATA",
-      "role": "Spring Boot Developer Intern (PFE)",
-      "period": "February 2025 - May 2025",
+      "role": "Spring Boot Developer (Graduation Internship)",
+      "period": "January 2025 - May 2025",
       "location": "Tetouan, Morocco",
-      "description": "Designed and developed the Employee Leave Management System at NTT DATA, building RESTful APIs with Spring Boot and implementing OAuth2 authentication with Azure. Focused on optimizing back-end performance and reliability while ensuring seamless integration with the front-end"
+      "description": "Architected and engineered high-throughput RESTful APIs for the Employee Leave Management System, securing endpoints using enterprise OAuth2 protocols via Azure Active Directory (Azure AD). Optimized database index strategies and query logic within Hibernate/JPA to deliver latency reductions across administrative dashboard components."
     }
   ],
   "education": [
     {
-      "degree": "Specialized Master’s in Computer Engineering",
+      "degree": "Specialized Master's Degree in Computer Engineering",
       "institution": "Faculty of Science, Abdelmalek Essaadi University",
       "period": "2023 - 2025",
       "location": "Tetouan, Morocco"
     },
     {
-      "degree": "Bachelor in Mathematics and Computer Science",
+      "degree": "Bachelor's Degree in Mathematics and Computer Science",
       "institution": "Faculty of Science, Abdelmalek Essaadi University",
       "period": "2020 - 2023",
       "location": "Tetouan, Morocco"
@@ -89,16 +102,16 @@
   ],
   "projects": [
     {
-      "name": "E-commerce Application",
-      "description": "E-commerce web application using Spring Boot and Angular with hexagonal architecture, Kafka, custom Spring Security with AOP, JWT, OAuth2, Swagger, PostgreSQL, and Redis."
+      "name": "E-Commerce Microservices & Web Platform",
+      "description": "Engineered a distributed e-commerce architecture utilizing Spring Boot, Angular, and Hexagonal Architecture principles. Integrated Spring Security with Custom AOP aspects for JWT, decoupled communications with Apache Kafka, and optimized high-frequency lookups with Spring Data Redis over a PostgreSQL cluster."
     },
     {
-      "name": "School Management Application",
-      "description": "School management web application using JEE and JWT (grades, attendance, library, results)."
+      "name": "Warehouse Management System (WMS)",
+      "description": "Designed a Clean Architecture inventory management web application leveraging ASP.NET Core, EF Core, and SQL Server. Implemented real-time multi-warehouse tracking analytics alongside secure identity mapping via JWT and Google OAuth2."
     },
     {
-      "name": "Hotel Booking Application",
-      "description": "Back-end development of a hotel booking application using Laravel, Eloquent ORM, database migrations, and Laravel Passport authentication."
+      "name": "HR & Payroll Management System",
+      "description": "Built an integrated human resource suite using Laravel and RESTful API structures secured by Sanctum. Features automated contract tracking, attendance matrixing, dynamic role-based access control (Spatie), and programmatic PDF payslip generation."
     }
   ]
 }
